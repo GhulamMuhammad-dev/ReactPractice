@@ -3,7 +3,7 @@
 import GlassCard from './components/GlassCard';
 import icon from "./assets/arrow-down-bold.svg";
 import img1 from "./assets/myImg.png";
-import PopMenu from './components/PopMenu';
+
 
 const App = () => {
 
@@ -13,7 +13,6 @@ const App = () => {
     <div className=' max-w-2xl   '>
 
 
-    <PopMenu />
 
 
 

@@ -1,10 +1,25 @@
 
 import PropTypes from 'prop-types';
+import PopMenu from './PopMenu';
+import { useState } from 'react';
 
 
 const GlassCard = ({ image, subheading, heading, detail,buttonIcon,buttonIconSize }) => {
+
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuVisible((prevVisible) => !prevVisible);
+  };
+
+
+
+
+
+
+
   return (
-    <div className=" cursor-pointer hover:from-[#C77DFF]/10   flex flex-col items-center gap-2 md:gap-6 md:flex-row bg-gradient-to-l from-[#C77DFF]/0 to-[#7B2CBF]/10  backdrop-blur-md rounded-xl shadow-lg p-6 md:p-8  m-4   border border-white border-opacity-30 ">
+    <div className=" cursor-pointer hover:from-[#C77DFF]/10   flex flex-col items-center gap-2 md:gap-6 md:flex-row bg-gradient-to-l from-[#C77DFF]/0 to-[#7B2CBF]/10  backdrop-blur-md rounded-xl shadow-lg p-6 md:p-8  m-4   border border-white border-opacity-30">
       {/* Image Section */}
       <div className="md:w-1/3 w-full sm:w-2/4 flex-shrink-0 mb-4 md:mb-0 ">
         <img
@@ -23,11 +38,12 @@ const GlassCard = ({ image, subheading, heading, detail,buttonIcon,buttonIconSiz
 
       {/* Button on Right */}
       <div className="md:absolute mt-4 md:mt-0  md:right-8 md:bottom-4">
-        <button className="  bg-gradient-to-l from-cyan-500/0 to-blue-500/10 p-2 md:px-4 md:py-2 rounded-full md:hover:bg-[#C77DFF] md:drop-shadow-3xl transition">
+        <button onClick={toggleMenu} className="  bg-gradient-to-l from-cyan-500/0 to-blue-500/10 p-2 md:px-4 md:py-2 rounded-full md:hover:bg-[#C77DFF] md:drop-shadow-3xl transition">
           <img src={buttonIcon}   style={{ width: buttonIconSize, height:buttonIconSize }}></img>
-         
         </button>
       </div>
+
+      <PopMenu visible={menuVisible} toggleMenu={toggleMenu} />
     </div>
   );
 };
